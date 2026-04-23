@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import ConverterHeader from "./converter-header";
 import ConvertToolbar from "./convert-toolbar";
 import FileList from "./file-list";
 import PreviewCompare from "./preview-compare";
@@ -24,7 +25,7 @@ import {
   IMAGE_UPLOAD_ACCEPT,
   SUPPORTED_STATIC_INPUT_DESCRIPTION,
 } from "@/lib/config/file-types";
-import { APP_ROUTES, ROUTE_TITLES } from "@/lib/config/routes";
+import { APP_ROUTES } from "@/lib/config/routes";
 import { ERROR_CODES } from "@/lib/constants/error-codes";
 
 const SUPPORT_STATUS = {
@@ -153,24 +154,21 @@ export default function JpgConverterShell() {
 
   return (
     <>
-      <section className="mx-auto w-full max-w-6xl flex-1 px-6 py-10 md:px-8">
-        <div className="space-y-3">
-          <h1 className="text-3xl font-semibold tracking-tight">
-            {ROUTE_TITLES[APP_ROUTES.TO_JPG]}
-          </h1>
-          <p className="text-sm text-muted-foreground md:text-base">
-            Convert static images to optimized JPG locally in your browser.
-          </p>
-        </div>
+      <section className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 md:px-8 md:py-10">
+        <ConverterHeader
+          activeRoute={APP_ROUTES.TO_JPG}
+          description="Convert static images to optimized JPG locally, with quality, chroma, and alpha background controls."
+          badges={["Static images", "Progressive JPEG", "Local only"]}
+        />
 
         {supportStatus === SUPPORT_STATUS.IDLE ? (
-          <div className="mt-5 rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground">
+          <div className="mt-5 rounded-lg border border-border bg-card p-4 text-sm text-muted-foreground">
             Checking browser JPG encoding support...
           </div>
         ) : null}
 
         {supportStatus === SUPPORT_STATUS.UNSUPPORTED ? (
-          <div className="mt-5 rounded-xl border border-destructive/50 bg-destructive/10 p-4 text-sm text-destructive">
+          <div className="mt-5 rounded-lg border border-destructive/50 bg-destructive/10 p-4 text-sm text-destructive">
             {getErrorMessage(ERROR_CODES.JPG_ENCODE_UNSUPPORTED)}
           </div>
         ) : null}

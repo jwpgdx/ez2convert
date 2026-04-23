@@ -1,5 +1,6 @@
 "use client";
 
+import { Files } from "lucide-react";
 import FileCard from "./file-card";
 
 export default function FileList({
@@ -12,8 +13,11 @@ export default function FileList({
 }) {
   if (items.length === 0) {
     return (
-      <section className="rounded-2xl border border-border bg-card p-4 text-sm text-muted-foreground">
-        업로드된 파일이 없습니다.
+      <section className="flex min-h-40 items-center justify-center rounded-lg border border-border bg-card p-4 text-center text-sm text-muted-foreground">
+        <div className="space-y-2">
+          <Files className="mx-auto h-5 w-5 text-foreground" aria-hidden="true" />
+          <p>No files in the queue yet.</p>
+        </div>
       </section>
     );
   }

@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import ConverterHeader from "./converter-header";
 import ConvertToolbar from "./convert-toolbar";
 import FileList from "./file-list";
 import PreviewCompare from "./preview-compare";
@@ -19,7 +20,7 @@ import {
   getZipStats,
 } from "@/lib/download/zip-download";
 import { saveBlob } from "@/lib/download/save-blob";
-import { APP_ROUTES, ROUTE_TITLES } from "@/lib/config/routes";
+import { APP_ROUTES } from "@/lib/config/routes";
 import { ERROR_CODES } from "@/lib/constants/error-codes";
 
 const ZIP_NAME_PREFIX = "gif-converted";
@@ -110,16 +111,12 @@ export default function GifConverterShell() {
 
   return (
     <>
-      <section className="mx-auto w-full max-w-6xl flex-1 px-6 py-10 md:px-8">
-        <div className="space-y-3">
-          <h1 className="text-3xl font-semibold tracking-tight">
-            {ROUTE_TITLES[APP_ROUTES.TO_GIF]}
-          </h1>
-          <p className="text-sm text-muted-foreground md:text-base">
-            Convert images and videos to GIF locally in your browser. Animated/video
-            conversions can be slower on first run due to ffmpeg.wasm loading.
-          </p>
-        </div>
+      <section className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 md:px-8 md:py-10">
+        <ConverterHeader
+          activeRoute={APP_ROUTES.TO_GIF}
+          description="Convert images and short videos to GIF locally, with frame timing, alpha, and resize controls."
+          badges={["Images and video", "Animated GIF", "Local only"]}
+        />
 
         <div className="mt-6 grid gap-4 lg:grid-cols-[1.6fr_1fr]">
           <UploadDropzone
@@ -182,4 +179,3 @@ export default function GifConverterShell() {
     </>
   );
 }
-

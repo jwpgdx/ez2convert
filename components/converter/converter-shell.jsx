@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import ConverterHeader from "./converter-header";
 import ConvertToolbar from "./convert-toolbar";
 import FileList from "./file-list";
 import PreviewCompare from "./preview-compare";
@@ -22,7 +23,7 @@ import {
   getZipStats,
 } from "@/lib/download/zip-download";
 import { saveBlob } from "@/lib/download/save-blob";
-import { APP_ROUTES, ROUTE_TITLES } from "@/lib/config/routes";
+import { APP_ROUTES } from "@/lib/config/routes";
 import { ERROR_CODES } from "@/lib/constants/error-codes";
 
 const SUPPORT_STATUS = {
@@ -120,7 +121,7 @@ export default function ConverterShell() {
   const handleDownloadZip = async () => {
     if (zipStats.exceedsLimit) {
       addToast({
-        message: "ZIP 합계가 500MB를 초과하여 다운로드할 수 없습니다.",
+        message: "ZIP bundle exceeds 500MB and download is disabled.",
       });
       return;
     }
@@ -129,7 +130,7 @@ export default function ConverterShell() {
     }
     if (zipStats.shouldWarn) {
       const confirmed = window.confirm(
-        "ZIP 합계가 300MB를 초과했습니다. 계속 진행할까요?"
+        "ZIP bundle exceeds 300MB. Continue to build ZIP?"
       );
       if (!confirmed) {
         return;
@@ -141,7 +142,7 @@ export default function ConverterShell() {
       const zipBlob = await createZipBlobFromItems(queue.items);
       saveBlob(zipBlob, createZipFileName());
     } catch {
-      addToast({ message: "ZIP 생성 중 오류가 발생했습니다." });
+      addToast({ message: "Failed to build ZIP file." });
     } finally {
       setIsZipBuilding(false);
     }
@@ -149,24 +150,21 @@ export default function ConverterShell() {
 
   return (
     <>
-      <section className="mx-auto w-full max-w-6xl flex-1 px-6 py-10 md:px-8">
-        <div className="space-y-3">
-          <h1 className="text-3xl font-semibold tracking-tight">
-            {ROUTE_TITLES[APP_ROUTES.TO_WEBP]}
-          </h1>
-          <p className="text-sm text-muted-foreground md:text-base">
-            JPG/PNG/GIF/APNG 이미지를 브라우저에서 직접 WebP로 변환합니다.
-          </p>
-        </div>
+      <section className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 md:px-8 md:py-10">
+        <ConverterHeader
+          activeRoute={APP_ROUTES.TO_WEBP}
+          description="Convert images, animations, and short videos to WebP locally in your browser."
+          badges={["JPG, PNG, GIF, APNG, video", "Animated WebP", "Local only"]}
+        />
 
         {supportStatus === SUPPORT_STATUS.IDLE ? (
-          <div className="mt-5 rounded-xl border border-border bg-card p-4 text-sm text-muted-foreground">
-            브라우저 WebP 저장 지원 여부를 확인 중입니다...
+          <div className="mt-5 rounded-lg border border-border bg-card p-4 text-sm text-muted-foreground">
+            Checking browser WebP encoding support...
           </div>
         ) : null}
 
         {supportStatus === SUPPORT_STATUS.UNSUPPORTED ? (
-          <div className="mt-5 rounded-xl border border-destructive/50 bg-destructive/10 p-4 text-sm text-destructive">
+          <div className="mt-5 rounded-lg border border-destructive/50 bg-destructive/10 p-4 text-sm text-destructive">
             {getErrorMessage(ERROR_CODES.WEBP_ENCODE_UNSUPPORTED)}
           </div>
         ) : null}

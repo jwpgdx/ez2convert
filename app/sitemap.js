@@ -1,6 +1,8 @@
 import { APP_ROUTES } from "@/lib/config/routes";
 import { getSiteUrl } from "@/lib/config/site";
 
+export const dynamic = "force-static";
+
 export default function sitemap() {
   const siteUrl = getSiteUrl();
 

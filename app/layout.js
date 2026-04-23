@@ -13,10 +13,11 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: "Image to WebP Converter",
-    template: "%s | Image to WebP Converter",
+    default: "EZ2 Local Image Converter",
+    template: "%s | EZ2 Local Image Converter",
   },
-  description: "Convert JPG and PNG images to WebP locally in your browser.",
+  description:
+    "Convert images, animations, and videos locally in your browser.",
 };
 
 export default function RootLayout({ children }) {

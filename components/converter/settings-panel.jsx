@@ -1,5 +1,6 @@
 "use client";
 
+import { RotateCcw, SlidersHorizontal } from "lucide-react";
 import {
   CONVERSION_LIMITS,
   AVIF_CHROMA_SUBSAMPLING,
@@ -74,8 +75,11 @@ export default function SettingsPanel({
   const queueVisibility = visibility || EMPTY_VISIBILITY;
 
   return (
-    <section className="rounded-2xl border border-border bg-card p-4">
-      <h2 className="text-sm font-semibold">Conversion settings</h2>
+    <section className="rounded-lg border border-border bg-card p-4">
+      <h2 className="flex items-center gap-2 text-sm font-semibold">
+        <SlidersHorizontal className="h-4 w-4" aria-hidden="true" />
+        Conversion settings
+      </h2>
 
       <div className="mt-4 space-y-4">
         <label className="block text-sm">
@@ -137,7 +141,7 @@ export default function SettingsPanel({
         </label>
 
         {showTimingOptions ? (
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             <label className="text-sm">
               <span className="mb-1 block text-muted-foreground">
                 Output FPS (common)
@@ -247,7 +251,7 @@ export default function SettingsPanel({
               Video options
             </p>
 
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid gap-3 sm:grid-cols-2">
               <label className="text-sm">
                 <span className="mb-1 block text-muted-foreground">
                   Trim start (sec)
@@ -304,7 +308,7 @@ export default function SettingsPanel({
               </select>
             </label>
 
-            <div className="mt-3 grid grid-cols-2 gap-3">
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
               <label className="text-sm">
                 <span className="mb-1 block text-muted-foreground">
                   Max duration (sec)
@@ -547,7 +551,7 @@ export default function SettingsPanel({
               </div>
             </label>
 
-            <div className="mt-3 grid grid-cols-2 gap-3">
+            <div className="mt-3 grid gap-3 sm:grid-cols-2">
               <label className="text-sm">
                 <span className="mb-1 block text-muted-foreground">
                   Alpha threshold (0-255)
@@ -641,7 +645,7 @@ export default function SettingsPanel({
         ) : null}
 
         {commonOptions.resizeMode === RESIZE_MODES.MAX ? (
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             <label className="text-sm">
               <span className="mb-1 block text-muted-foreground">maxWidth</span>
               <input
@@ -678,7 +682,7 @@ export default function SettingsPanel({
         ) : null}
 
         {commonOptions.resizeMode === RESIZE_MODES.EXACT ? (
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid gap-3 sm:grid-cols-2">
             <label className="text-sm">
               <span className="mb-1 block text-muted-foreground">width(px)</span>
               <input
@@ -718,8 +722,9 @@ export default function SettingsPanel({
           type="button"
           disabled={disabled}
           onClick={() => onReset?.()}
-          className="rounded-md border border-border px-3 py-2 text-xs text-muted-foreground disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-3 py-2 text-xs text-muted-foreground disabled:cursor-not-allowed disabled:opacity-60"
         >
+          <RotateCcw className="h-3.5 w-3.5" aria-hidden="true" />
           Reset settings
         </button>
       </div>

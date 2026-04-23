@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useState } from "react";
+import ConverterHeader from "./converter-header";
 import ConvertToolbar from "./convert-toolbar";
 import FileList from "./file-list";
 import PreviewCompare from "./preview-compare";
@@ -23,7 +24,7 @@ import {
   IMAGE_UPLOAD_ACCEPT,
   SUPPORTED_STATIC_INPUT_DESCRIPTION,
 } from "@/lib/config/file-types";
-import { APP_ROUTES, ROUTE_TITLES } from "@/lib/config/routes";
+import { APP_ROUTES } from "@/lib/config/routes";
 import { ERROR_CODES } from "@/lib/constants/error-codes";
 
 const ZIP_NAME_PREFIX = "avif-converted";
@@ -123,16 +124,12 @@ export default function AvifConverterShell() {
 
   return (
     <>
-      <section className="mx-auto w-full max-w-6xl flex-1 px-6 py-10 md:px-8">
-        <div className="space-y-3">
-          <h1 className="text-3xl font-semibold tracking-tight">
-            {ROUTE_TITLES[APP_ROUTES.TO_AVIF]}
-          </h1>
-          <p className="text-sm text-muted-foreground md:text-base">
-            Convert static images to AVIF locally in your browser. AVIF encoding is
-            CPU-heavy and the wasm encoder is loaded on demand.
-          </p>
-        </div>
+      <section className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 md:px-8 md:py-10">
+        <ConverterHeader
+          activeRoute={APP_ROUTES.TO_AVIF}
+          description="Convert static images to AVIF locally. The encoder loads on demand and gives you quality-focused output controls."
+          badges={["Static images", "AVIF wasm", "Local only"]}
+        />
 
         <div className="mt-6 grid gap-4 lg:grid-cols-[1.6fr_1fr]">
           <UploadDropzone
@@ -197,4 +194,3 @@ export default function AvifConverterShell() {
     </>
   );
 }
-

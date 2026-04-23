@@ -1,5 +1,7 @@
 "use client";
 
+import { X } from "lucide-react";
+
 export default function ToastStack({ toasts, onClose }) {
   return (
     <div className="pointer-events-none fixed right-4 top-4 z-50 space-y-2">
@@ -12,10 +14,11 @@ export default function ToastStack({ toasts, onClose }) {
             <p className="text-xs text-foreground">{toast.message}</p>
             <button
               type="button"
+              aria-label="Close notification"
               onClick={() => onClose?.(toast.id)}
-              className="text-xs text-muted-foreground"
+              className="rounded-sm p-1 text-muted-foreground hover:text-foreground"
             >
-              닫기
+              <X className="h-3.5 w-3.5" aria-hidden="true" />
             </button>
           </div>
         </div>

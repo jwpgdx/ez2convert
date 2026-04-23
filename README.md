@@ -1,4 +1,4 @@
-# client
+# EZ2 Convert
 
 Local browser-based image converter built with Next.js (App Router, JavaScript).
 
@@ -41,6 +41,8 @@ npm run build
 npm run test:e2e
 ```
 
+`npm run build` generates the static export in `out/`, which is the deploy target for Firebase Hosting.
+
 Playwright uses port `3100` by default to avoid conflicts with other local apps.
 Override it when needed:
 
@@ -53,6 +55,25 @@ If Playwright browser is missing:
 ```bash
 npx playwright install chromium
 ```
+
+## Firebase Hosting
+
+This project is configured for Firebase Hosting static deploys.
+
+```bash
+npx firebase-tools login
+npx firebase-tools deploy
+```
+
+Default production URL:
+
+```text
+https://ez2convert.web.app
+```
+
+GitHub Actions deploys are configured for:
+- PR preview channels via `.github/workflows/firebase-hosting-pull-request.yml`
+- live deploys on `main` via `.github/workflows/firebase-hosting-merge.yml`
 
 ## Release Notes
 - Changelog: `CHANGELOG.md`

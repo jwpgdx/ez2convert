@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { Image as ImageIcon } from "lucide-react";
 import { formatBytes } from "@/lib/format/format-bytes";
 
 export default function PreviewCompare({ item }) {
@@ -16,8 +17,11 @@ export default function PreviewCompare({ item }) {
 
   if (!item) {
     return (
-      <section className="rounded-2xl border border-border bg-card p-4 text-sm text-muted-foreground">
-        파일을 선택하면 Before/After 미리보기를 표시합니다.
+      <section className="flex min-h-40 items-center justify-center rounded-lg border border-border bg-card p-4 text-center text-sm text-muted-foreground">
+        <div className="space-y-2">
+          <ImageIcon className="mx-auto h-5 w-5 text-foreground" aria-hidden="true" />
+          <p>Select a file to compare before and after.</p>
+        </div>
       </section>
     );
   }
@@ -28,7 +32,7 @@ export default function PreviewCompare({ item }) {
       : null;
 
   return (
-    <section className="rounded-2xl border border-border bg-card p-4">
+    <section className="rounded-lg border border-border bg-card p-4">
       <h2 className="text-sm font-semibold">Before / After</h2>
 
       <div className="mt-3 grid gap-3 md:grid-cols-2">
@@ -43,7 +47,7 @@ export default function PreviewCompare({ item }) {
                 className="h-full w-full object-contain"
               />
             ) : (
-              <span className="text-xs text-muted-foreground">미리보기 없음</span>
+              <span className="text-xs text-muted-foreground">No preview</span>
             )}
           </div>
         </figure>
@@ -59,16 +63,16 @@ export default function PreviewCompare({ item }) {
                 className="h-full w-full object-contain"
               />
             ) : (
-              <span className="text-xs text-muted-foreground">변환 결과 없음</span>
+              <span className="text-xs text-muted-foreground">No output yet</span>
             )}
           </div>
         </figure>
       </div>
 
       <p className="mt-3 text-xs text-muted-foreground">
-        원본 {formatBytes(item.input.size)}
-        {item.output?.size ? ` → 결과 ${formatBytes(item.output.size)}` : ""}
-        {reduction ? ` (${reduction}% 절감)` : ""}
+        Original {formatBytes(item.input.size)}
+        {item.output?.size ? ` -> Converted ${formatBytes(item.output.size)}` : ""}
+        {reduction ? ` (${reduction}% saved)` : ""}
       </p>
     </section>
   );
