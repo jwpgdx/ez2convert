@@ -1,12 +1,21 @@
 import ConverterShell from "@/components/converter/converter-shell";
+import SiteFooter from "@/components/site/site-footer";
 import { APP_ROUTES, ROUTE_TITLES } from "@/lib/config/routes";
+import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: ROUTE_TITLES[APP_ROUTES.TO_WEBP],
-  alternates: {
-    canonical: APP_ROUTES.TO_WEBP,
-  },
-};
+  description:
+    "Convert JPG, PNG, GIF, APNG, and short video files to WebP locally in your browser.",
+  path: APP_ROUTES.TO_WEBP,
+  keywords: [
+    "image to webp",
+    "jpg to webp",
+    "png to webp",
+    "gif to webp",
+    "video to webp",
+  ],
+});
 
 const NOTICE_ITEMS = [
   "All conversion is processed in your browser locally. No upload to server.",
@@ -20,14 +29,7 @@ export default function ToWebpPage() {
   return (
     <main className="flex min-h-screen flex-col bg-background">
       <ConverterShell />
-
-      <footer className="border-t border-border bg-muted/30">
-        <div className="mx-auto w-full max-w-5xl space-y-2 px-6 py-6 text-xs leading-5 text-muted-foreground md:px-8 md:text-sm">
-          {NOTICE_ITEMS.map((item) => (
-            <p key={item}>{item}</p>
-          ))}
-        </div>
-      </footer>
+      <SiteFooter noticeItems={NOTICE_ITEMS} />
     </main>
   );
 }

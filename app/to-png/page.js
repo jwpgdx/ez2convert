@@ -1,12 +1,20 @@
 import PngConverterShell from "@/components/converter/png-converter-shell";
+import SiteFooter from "@/components/site/site-footer";
 import { APP_ROUTES, ROUTE_TITLES } from "@/lib/config/routes";
+import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 
-export const metadata = {
+export const metadata = buildPageMetadata({
   title: ROUTE_TITLES[APP_ROUTES.TO_PNG],
-  alternates: {
-    canonical: APP_ROUTES.TO_PNG,
-  },
-};
+  description:
+    "Convert WebP, JPG, and other static images to PNG locally in your browser.",
+  path: APP_ROUTES.TO_PNG,
+  keywords: [
+    "webp to png",
+    "jpg to png",
+    "image to png",
+    "png converter",
+  ],
+});
 
 const NOTICE_ITEMS = [
   "All conversion is processed in your browser locally. No upload to server.",
@@ -21,14 +29,7 @@ export default function ToPngPage() {
   return (
     <main className="flex min-h-screen flex-col bg-background">
       <PngConverterShell />
-
-      <footer className="border-t border-border bg-muted/30">
-        <div className="mx-auto w-full max-w-5xl space-y-2 px-6 py-6 text-xs leading-5 text-muted-foreground md:px-8 md:text-sm">
-          {NOTICE_ITEMS.map((item) => (
-            <p key={item}>{item}</p>
-          ))}
-        </div>
-      </footer>
+      <SiteFooter noticeItems={NOTICE_ITEMS} />
     </main>
   );
 }

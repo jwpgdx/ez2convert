@@ -2,6 +2,23 @@
 
 All notable changes for this project are tracked here.
 
+## v0.1.2 - 2026-04-24
+
+### Added
+- Public `About` and `Privacy` pages for trust, support context, and policy visibility.
+- Shared site footer links across converter routes and informational pages.
+- Route-specific metadata helper for canonical, Open Graph, Twitter, and keyword coverage.
+
+### Changed
+- Refined page titles and descriptions for WebP, PNG, JPG, AVIF, and GIF routes.
+- Expanded sitemap coverage to include informational pages.
+- Updated root metadata to better match the public `EZ2 Convert` brand.
+
+### Verification
+- `npm run lint`
+- `npm run build`
+- `npm run test:e2e`
+
 ## v0.1.1 - 2026-04-24
 
 ### Added

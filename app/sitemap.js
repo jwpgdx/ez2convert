@@ -8,6 +8,18 @@ export default function sitemap() {
 
   return [
     {
+      url: `${siteUrl}/about`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${siteUrl}/privacy`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
       url: `${siteUrl}${APP_ROUTES.TO_WEBP}`,
       lastModified: new Date(),
       changeFrequency: "weekly",
