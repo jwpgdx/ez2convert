@@ -5,10 +5,10 @@ import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 export const metadata = buildPageMetadata({
   title: "About",
   description:
-    "Learn what EZ2 Convert does, which formats it supports, and why it keeps conversion local in your browser.",
+    "Learn what EZ2 File does, which formats it supports, and why it keeps conversion local in your browser.",
   path: "/about",
   keywords: [
-    "about ez2 convert",
+    "about ez2 file",
     "local browser converter",
     "image converter web app",
     "video to webp browser",
@@ -19,7 +19,7 @@ const SECTIONS = [
   {
     title: "What it does",
     body:
-      "EZ2 Convert is a browser-based converter for WebP, PNG, JPG, AVIF, GIF, and selected short video workflows. It is designed to handle common upload, blog, marketplace, and messaging format changes without sending your file to a conversion server.",
+      "EZ2 File is a browser-based converter for WebP, PNG, JPG, AVIF, GIF, and selected short video workflows. It is designed to handle common upload, blog, marketplace, and messaging format changes without sending your file to a conversion server.",
   },
   {
     title: "Why local processing matters",
@@ -44,7 +44,7 @@ export default function AboutPage() {
       <section className="mx-auto w-full max-w-4xl flex-1 px-6 py-10 md:px-8">
         <div className="space-y-4 border-b border-border pb-6">
           <p className="text-xs font-medium uppercase text-muted-foreground">
-            EZ2 Convert
+            EZ2 File
           </p>
           <div className="space-y-2">
             <h1 className="text-3xl font-semibold md:text-4xl">About</h1>

@@ -16,10 +16,10 @@ const siteUrl = getSiteUrl();
 
 export const metadata = {
   metadataBase: new URL(siteUrl),
-  applicationName: "EZ2 Convert",
+  applicationName: "EZ2 File",
   title: {
-    default: "EZ2 Convert",
-    template: "%s | EZ2 Convert",
+    default: "EZ2 File",
+    template: "%s | EZ2 File",
   },
   description:
     "Convert WebP, PNG, JPG, AVIF, GIF, and short videos locally in your browser.",
@@ -34,16 +34,16 @@ export const metadata = {
     "local image converter",
   ],
   openGraph: {
-    title: "EZ2 Convert",
+    title: "EZ2 File",
     description:
       "Convert WebP, PNG, JPG, AVIF, GIF, and short videos locally in your browser.",
     url: siteUrl,
-    siteName: "EZ2 Convert",
+    siteName: "EZ2 File",
     type: "website",
   },
   twitter: {
     card: "summary",
-    title: "EZ2 Convert",
+    title: "EZ2 File",
     description:
       "Convert WebP, PNG, JPG, AVIF, GIF, and short videos locally in your browser.",
   },

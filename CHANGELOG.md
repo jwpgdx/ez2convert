@@ -2,6 +2,15 @@
 
 All notable changes for this project are tracked here.
 
+## v0.1.5 - 2026-04-24
+
+### Changed
+- Renamed the public product brand from `EZ2 Convert` to `EZ2 File` across metadata, landing surfaces, and trust pages.
+
+### Verification
+- `npm run build`
+- production route smoke check on `https://ez2file.web.app/to-webp`
+
 ## v0.1.4 - 2026-04-24
 
 ### Changed

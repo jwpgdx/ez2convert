@@ -1,4 +1,4 @@
-# EZ2 Convert
+# EZ2 File
 
 Local browser-based image converter built with Next.js (App Router, JavaScript).
 

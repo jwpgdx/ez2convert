@@ -4,10 +4,10 @@ import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 export const metadata = buildPageMetadata({
   title: "Privacy",
   description:
-    "Read how EZ2 Convert handles files, browser processing, downloads, and basic hosting logs.",
+    "Read how EZ2 File handles files, browser processing, downloads, and basic hosting logs.",
   path: "/privacy",
   keywords: [
-    "ez2 convert privacy",
+    "ez2 file privacy",
     "browser image converter privacy",
     "local file conversion privacy",
   ],
@@ -17,7 +17,7 @@ const SECTIONS = [
   {
     title: "Files stay in your browser for conversion",
     body:
-      "EZ2 Convert is built so supported conversions run locally in your browser. Your files are not intentionally uploaded to a conversion server as part of the normal conversion flow.",
+      "EZ2 File is built so supported conversions run locally in your browser. Your files are not intentionally uploaded to a conversion server as part of the normal conversion flow.",
   },
   {
     title: "Downloads are generated on your device",
@@ -42,7 +42,7 @@ export default function PrivacyPage() {
       <section className="mx-auto w-full max-w-4xl flex-1 px-6 py-10 md:px-8">
         <div className="space-y-4 border-b border-border pb-6">
           <p className="text-xs font-medium uppercase text-muted-foreground">
-            EZ2 Convert
+            EZ2 File
           </p>
           <div className="space-y-2">
             <h1 className="text-3xl font-semibold md:text-4xl">Privacy</h1>

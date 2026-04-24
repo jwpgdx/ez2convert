@@ -36,7 +36,7 @@ export default function SiteFooter({ noticeItems = [] }) {
         </div>
 
         <p className="text-xs leading-5 text-muted-foreground md:text-sm">
-          EZ2 Convert runs conversions in your browser so files do not need to
+          EZ2 File runs conversions in your browser so files do not need to
           be uploaded for processing.
         </p>
       </div>
