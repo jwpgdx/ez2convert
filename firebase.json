@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "ez2convert",
+    "site": "ez2file",
     "public": "out",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
     "cleanUrls": true,

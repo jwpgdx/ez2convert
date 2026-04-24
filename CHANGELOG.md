@@ -2,6 +2,16 @@
 
 All notable changes for this project are tracked here.
 
+## v0.1.4 - 2026-04-24
+
+### Changed
+- Switched the Firebase Hosting live site target from `ez2convert` to `ez2file`.
+- Updated the default public production URL to `https://ez2file.web.app`.
+
+### Verification
+- `npm run build`
+- live deploy check on `https://ez2file.web.app`
+
 ## v0.1.3 - 2026-04-24
 
 ### Added

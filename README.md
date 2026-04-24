@@ -68,7 +68,7 @@ npx firebase-tools deploy
 Default production URL:
 
 ```text
-https://ez2convert.web.app
+https://ez2file.web.app
 ```
 
 GitHub Actions deploys are configured for:
