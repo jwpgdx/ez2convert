@@ -10,7 +10,7 @@ All notable changes for this project are tracked here.
 
 ### Verification
 - `npx firebase-tools init hosting:github`
-- GitHub Actions live deploy check from `jwpgdx/ez2file`
+- Generated workflow and GitHub secret review for `jwpgdx/ez2file`
 
 ## v0.1.6 - 2026-04-24
 
