@@ -2,6 +2,16 @@
 
 All notable changes for this project are tracked here.
 
+## v0.1.6 - 2026-04-24
+
+### Changed
+- Pointed the public GitHub repository link to `jwpgdx/ez2file`.
+- Prepared the local repository to migrate source control to the new `ez2file` remote while keeping the legacy repo available for deployment continuity.
+
+### Verification
+- `npm run build`
+- git remote migration and push checks
+
 ## v0.1.5 - 2026-04-24
 
 ### Changed

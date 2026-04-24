@@ -78,7 +78,7 @@ export default function AboutPage() {
                 Open converter
               </Link>
               <a
-                href="https://github.com/jwpgdx/ez2convert"
+                href="https://github.com/jwpgdx/ez2file"
                 className="rounded-md border border-border bg-background px-3 py-2 transition-colors hover:text-foreground"
               >
                 GitHub repository
