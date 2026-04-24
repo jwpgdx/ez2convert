@@ -2,6 +2,16 @@
 
 All notable changes for this project are tracked here.
 
+## v0.1.7 - 2026-04-24
+
+### Changed
+- Reconnected Firebase Hosting GitHub integration for the new `jwpgdx/ez2file` repository.
+- Refreshed the generated Hosting preview/live workflow files in the new source repository.
+
+### Verification
+- `npx firebase-tools init hosting:github`
+- GitHub Actions live deploy check from `jwpgdx/ez2file`
+
 ## v0.1.6 - 2026-04-24
 
 ### Changed
