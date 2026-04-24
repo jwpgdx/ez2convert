@@ -2,6 +2,15 @@
 
 All notable changes for this project are tracked here.
 
+## v0.1.3 - 2026-04-24
+
+### Added
+- Google Search Console HTML verification file for `https://ez2convert.web.app/`.
+
+### Verification
+- `npm run build`
+- live verification file URL check
+
 ## v0.1.2 - 2026-04-24
 
 ### Added
