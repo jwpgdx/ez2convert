@@ -2,6 +2,16 @@
 
 All notable changes for this project are tracked here.
 
+## v0.1.8 - 2026-04-26
+
+### Changed
+- Replaced the generated sitemap and robots routes with static `public/` files to simplify crawler access.
+- Added the homepage to the sitemap so Search Console sees the canonical root URL in the submitted file.
+
+### Verification
+- `npm run build`
+- live checks for `https://ez2file.web.app/sitemap.xml` and `https://ez2file.web.app/robots.txt`
+
 ## v0.1.7 - 2026-04-24
 
 ### Changed
